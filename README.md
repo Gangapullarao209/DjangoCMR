@@ -52,7 +52,7 @@ dcrm/
 ## 🚀 How to Run This Project Locally
 
 ##1. Clone the Repository
-                      git clone https://github.com/your-username/django-crm.git
+                      git clone https://github.com//Gangapullarao209//DjangoCMR.git
                         cd django-crm
 ##2. Create and Activate Virtual Environment
 

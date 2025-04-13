@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: django-crm
+    env: python
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn CRM.wsgi:application"
+    envVars:
+      - key: DATABASE_URL
+        value: "mysql://username:password@hostname/dbname"

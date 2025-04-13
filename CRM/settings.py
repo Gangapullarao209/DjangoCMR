@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+import os
 import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -77,7 +78,18 @@ WSGI_APPLICATION = 'CRM.wsgi.application'
 
 DATABASES = {
 
-    'default': dj_database_url.config(conn_max_age=600)
+    from dotenv import load_dotenv
+load_dotenv()
+
+# Set up database using dj_database_url for local and cloud (Render)
+DATABASES = {
+    'default': dj_database_url.config(
+        default=os.getenv('DATABASE_URL', 'mysql://root:1234@localhost:3306/GANGA'),  # Fallback to default for local development
+        conn_max_age=600
+    )
+}
+
+    # 'default': dj_database_url.config(conn_max_age=600)
     # 'default': {
     #     'ENGINE': 'django.db.backends.mysql',
     #     'NAME':  'GANGA',
